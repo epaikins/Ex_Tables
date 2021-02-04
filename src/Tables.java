@@ -18,6 +18,11 @@ public class Tables {
     }
 
     public static int[] readIntoArray(int sizeOfArray){
+        if(sizeOfArray > 100 || sizeOfArray <0){
+            System.out.println("Please you entered an invalid number of students");
+            return null;
+        }
+
         int[] userArray = new int[sizeOfArray];
         for(int i = 0; i < sizeOfArray; i++){
             int mark = scanner.nextInt();
