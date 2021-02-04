@@ -4,20 +4,22 @@ import java.util.Arrays;
 public class Tables {
     private static Scanner scanner = new Scanner(System.in);
 
-
-
-
-
     public static void main(String[] args) {
+        // Sample Inputs:
+        // 20
+        // 60 23 98 45 56 17 62 50 80 90 20 58 09 40 35 29 32 49 57 69
+
+        System.out.print("Please enter the number of students: ");
         int userInput = scanner.nextInt();
         scanner.nextLine();
 
+        System.out.println("Please enter the marks for the "+userInput+" number of students (separated by spaces): ");
         int[] array = readIntoArray(userInput);
         printArray(array);
-//        System.out.println(maxMark(array));
-//        System.out.println(minMark(array));
-//        System.out.println(avgMark(array));
-//        printArray(scores(array));
+        System.out.println(maxMark(array));
+        System.out.println(minMark(array));
+        System.out.println(avgMark(array));
+        printArray(scores(array));
 
         drawGraph(scores(array));
     }
@@ -100,7 +102,7 @@ public class Tables {
         String hash = "#######";
         String empty ="       ";
         for(int y = maxY; y> 0; y--){
-            System.out.print(y+" >  ");
+            System.out.printf("%01d >  ",y);
             for(int i =0; i<scores.length;i++) {
                 if (i == 0 && y <= scores[0]) {
                     System.out.printf("%s ", hash);
