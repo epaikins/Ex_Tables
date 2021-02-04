@@ -14,11 +14,12 @@ public class Tables {
 
         int[] array = readIntoArray(userInput);
         printArray(array);
-        System.out.println(maxMark(array));
-        System.out.println(minMark(array));
-        System.out.println(avgMark(array));
-        printArray(scores(array));
+//        System.out.println(maxMark(array));
+//        System.out.println(minMark(array));
+//        System.out.println(avgMark(array));
+//        printArray(scores(array));
 
+        drawGraph(scores(array));
     }
 
     public static int[] readIntoArray(int sizeOfArray){
@@ -87,6 +88,56 @@ public class Tables {
             }
         }
         return scores;
+    }
+
+    public static void drawGraph(int[] scores){
+        int maxY = maxMark(scores);
+        int minY = 0;
+        int maxX = 100;
+        int minX = 0;
+
+        // This prints the y-axis and the data
+        String hash = "#######";
+        String empty ="       ";
+        for(int y = maxY; y> 0; y--){
+            System.out.print(y+" >  ");
+            for(int i =0; i<scores.length;i++) {
+                if (i == 0 && y <= scores[0]) {
+                    System.out.printf("%s ", hash);
+                }
+                else if(i == 1 && y <= scores[1]){
+                    System.out.printf("%s ",hash);
+                }
+
+                else if(i == 2 && y <= scores[2]){
+                    System.out.printf("%s ",hash);
+                }
+                else if(i == 3 && y <= scores[3]){
+                    System.out.printf("%s ",hash);
+                }
+                else if(i == 4 && y <= scores[4]){
+                    System.out.printf("%s ",hash);
+                }
+                else{
+                    System.out.printf("%s ", empty);
+                }
+            }
+            System.out.println();
+        }
+
+        // This prints the X-axis for the graph
+        System.out.print("\t+");
+        for(int x = 0; x <= maxX-1; x += 20){
+            System.out.print("-------+");
+        }
+
+        System.out.print("\n");
+        System.out.print("\t"+ minX+ "\t");
+        for(int x = 21; x <= maxX; x += 20){
+            System.out.print("\t"+x+"\t");
+        }
+        System.out.print("\t"+maxX);
+
     }
 
     public static void printArray(int[] array){
