@@ -102,7 +102,7 @@ public class Tables {
         String hash = "#######";
         String empty ="       ";
         for(int y = maxY; y> 0; y--){
-            System.out.printf("%01d >  ",y);
+            System.out.printf("%5d >  ",y);
             for(int i =0; i<scores.length;i++) {
                 if (i == 0 && y <= scores[0]) {
                     System.out.printf("%s ", hash);
