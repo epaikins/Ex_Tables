@@ -15,6 +15,9 @@ public class Tables {
         int[] array = readIntoArray(userInput);
         printArray(array);
         System.out.println(maxMark(array));
+        System.out.println(minMark(array));
+        System.out.println(avgMark(array));
+        printArray(scores(array));
 
     }
 
@@ -55,12 +58,35 @@ public class Tables {
         return temp;
     }
 
-    public static int avgMark(int[] array){
-        int sum = 0;
+    public static double avgMark(int[] array){
+        double sum = 0;
         for(int i = 0; i< array.length;i++){
                 sum += array[i];
         }
         return sum/array.length;
+    }
+
+    public static int[] scores(int[] array){
+        int[] scores = new int[5];
+
+        for(int i = 0; i<array.length; i++){
+            if(array[i]>0 && array[i] <=20){
+                scores[0]++;
+            }
+            else if(array[i]>20 && array[i] <=40){
+                scores[1]++;
+            }
+            else if(array[i]>40 && array[i] <=60){
+                scores[2]++;
+            }
+            else if(array[i]>60 && array[i] <=80){
+                scores[3]++;
+            }
+            else{
+                scores[4]++;
+            }
+        }
+        return scores;
     }
 
     public static void printArray(int[] array){
